@@ -18,34 +18,110 @@
       <a class="nav-link" href="#html_text_fundamentals" rel="internal"><li>HTML text fundamentals</li></a>
       <a class="nav-link" href="#creating_hyperlinks" rel="internal"><li>Creating hyperlinks</li></a>
       <a class="nav-link" href="#document_and_website_structure" rel="internal"><li>Document and website structure</li></a>
+      <a class="nav-link" href="#reference" rel="internal"><li>Reference</li></a>
     </ul>
   </nav>
 
   <div id="main-doc">
-
-    <section class="main-section" id="introduction">
+    <section class="main-section" id="introduction_to_html">
       <header>Introduction to HTML</header>
       <p>HTML (Hypertext Markup Language) is not a programming language; it is a markup language used to tell your browser how to structure the web pages you visit. It can be as complicated or as simple as the web developer wishes it to be. HTML consists of a series of elements, which you use to enclose, wrap, or mark up different parts of the content to make it appear or act a certain way. The enclosing tags can make a bit of content into a hyperlink to link to another page on the web, italicize words, and so on.  For example, take the following line of content:</p>
       <pre><code class="language-html">My cat is very grumpy</code></pre>
       <p>If we wanted the line to stand by itself, we could specify that it is a paragraph by enclosing it in a paragraph (<span><</span>p>) element:</p>
        <pre><code class="language-html">&lt;p&gt; My cat is very grumpy &lt;/p&gt;</code></pre>
+       <br>
+       <ol>
+          <li><strong>The opening tag:</strong> This consists of the name of the element (in this case, p), wrapped in opening and closing <strong>angle brackets</strong>. This states where the element begins or starts to take effect — in this case where the start of the paragraph is.</li>
+          <li><strong>The closing tag:</strong> This is the same as the opening tag, except that it includes a forward slash before the element name. This states where the element ends — in this case where the end of the paragraph is. Failing to include a closing tag is a common beginner error and can lead to strange results.</li>
+          <li><strong>The content:</strong> This is the content of the element, which in this case is just text.</li>
+          <li><strong>The element:</strong> The opening tag&nbsp;plus the closing tag plus the content equals the element.</li>
+       </ol>
+       <h2>Nesting elements</h2>
+       <p>You can put elements inside other elements too — this is called <strong>nesting</strong>. If we wanted to state that our cat is <strong>very</strong> grumpy, we could wrap the word "very" in a  element, which means that the word is to be strongly emphasized:</p>
+        <pre><code class="language-html">&lt;p&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy.&lt;/p&gt;</code></pre>
+        <p>The elements have to open and close correctly, so they are clearly inside or outside one another. If they overlap like above, then your web browser will try to make a best guess at what you were trying to say, and you may well get unexpected results. So don't do it!</p>
     </section>
-
-
-
+    <hr class="sep">
 
     <section class="main-section" id="metadata_in_html">
       <header>Metadata in HTML</header>
+      <p>The head of an HTML document is the part that is not displayed in the web browser when the page is loaded. It contains information such as the page <span><</span>title>, links to CSS (if you choose to style your HTML content with CSS), links to custom favicons, and other metadata (data about the HTML, such as the author, and important keywords that describe the document.) In this article we'll cover all of the above and more, in order to give you a good basis for working with markup.
+      <br>
+      Let's revisit the simple HTML document we covered in the previous article:
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;My test page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;This is my page&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </p>
+      <p>The HTML head is the contents of the <span><</span>head> element — unlike the contents of the <span><</span>body> element (which are displayed on the page when loaded in a browser), the head's content is not displayed on the page. Instead, the head's job is to contain metadata about the document. In the above example, the head is quite small:</p>
+      <pre><code class="language-html">&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;My test page&lt;/title&gt;
+&lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;This is my page&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>In larger pages however, the head can get quite full. Try going to some of your favorite websites and use the developer tools to check out their head contents. Our aim here is not to show you how to use everything that can possibly be put in the head, but rather to teach you how to use the major elements that you'll want to include in the head, and give you some familiarity. Let's get started.</p>
     </section>
+
+    <hr class="sep">
     <section class="main-section" id="html_text_fundamentals">
       <header>HTML text fundamentals</header>
+      <p>One of HTML's main jobs is to give text structure and meaning (also known as semantics) so that a browser can display it correctly. This article explains the way HTML can be used to structure a page of text by adding headings and paragraphs, emphasizing words, creating lists, and more.</p>
+      <p>Structured content makes the reading experience easier and more enjoyable. <br>
+      In HTML, each paragraph has to be wrapped in a <span><</span>p> element, like so:</p>
+      <pre><code class="language-html"> &lt;p&gt;I am a paragraph, oh yes I am.&lt;/p&gt;</code></pre>
+      <p>There are six heading elements — <span><</span>h1>, <span><</span>h2>... Each element represents a different level of content in the document; <span><</span>h1> represents the main heading, <span><</span>h2> represents subheadings and so on.</p>
+      <p>It's really up to you what exactly the elements involved represent, as long as the hierarchy makes sense. You just need to bear in mind a few best practices as you create such structures:</p>
+      <ul>
+        <li>Preferably you should just use a single <code>&lt;h1&gt;</code> per page — this is the top level heading, and all others sit below this in the hierarchy.</li>
+        <li>Make sure you use the headings in the correct order in the hierarchy. Don't use <code>&lt;h3&gt;</code>s to represent subheadings, followed by <code>&lt;h2&gt;</code>s to represent sub-subheadings — that doesn't make sense and will lead to weird results.</li>
+        <li>Of the six heading levels available, you should aim to use no more than three per page, unless you feel it is necessary. Documents with many levels (i.e., a deep heading hierarchy) become unwieldy and difficult to navigate. On such occasions, it is advisable to spread the content over multiple pages if possible.</li>
+      </ul>
     </section>
+    <hr class="sep">
+
     <section class="main-section" id="creating_hyperlinks">
       <header>Creating hyperlinks</header>
+      <h2>What is Hyperlink?</h2>
+      <p>Hyperlinks are one of the most exciting innovations the Web has to offer. Well, they've been a feature of the Web since the very beginning, but they are what makes the Web a Web — they allow us to link our documents to any other document (or other resource) we want to, we can also link to specific parts of documents, and we can make apps available at a simple web address (contrast this to native apps, which have to be installed and all that business.) Just about any web content can be converted to a link, so that when clicked (or otherwise activated) it will make the web browser go to another web address (URL).</p>
+      <p>A basic link is created by wrapping the text (or other content, see Block level links) you want to turn into a link inside an <span><</span>a> element, and giving it an href attribute (also known as a Hypertext Reference , or target) that will contain the web address you want the link to point to.</p>
+      <pre><code class="language-html">&lt;p&gt;I'm creating a link to
+  &lt;a href=&quot;https://www.mozilla.org/en-US/&quot;&gt;the Mozilla homepage&lt;/a&gt;.
+&lt;/p&gt;</code></pre>
     </section>
+    <hr class="sep">
+
     <section class="main-section" id="document_and_website_structure">
       <header>Document and website structure</header>
+      <p>In addition to defining individual parts of your page (such as "a paragraph" or "an image"), HTML also boasts a number of block level elements used to define areas of your website (such as "the header", "the navigation menu", "the main content column".) This article looks into how to plan a basic website structure, and write the HTML to represent this structure.</p>
+      <h2>Basic sections of a document</h2>
+      <p>
+        <dt>header</dt>
+        <dd>Usually a big strip across the top with a big heading and/or logo. This is where the main common information about a website usually stays from one webpage to another.</dd>
+        <dt>navigation bar</dt>
+        <dd>Links to the site's main sections; usually represented by menu buttons, links, or tabs. Like the header, this content usually remains consistent from one webpage to another — having an inconsistent navigation on your website will just lead to confused, frustrated users. Many web designers consider the navigation bar to be part of the header rather than a individual component, but that's not a requirement; in fact some also argue that having the two separate is better for <a href="/en-US/docs/Learn/Accessibility">accessibility</a>, as screen readers can read the two features better if they are separate.</dd>
+        <dt>main content</dt>
+        <dd>A big area in the center that contains most of the unique content of a given webpage, for example the video you want to watch, or the main story you're reading, or the map you want to view, or the news headlines, etc. This is the one part of the website that definitely will vary from page to page!</dd>
+        <dt>sidebar</dt>
+        <dd>Some peripheral info, links, quotes, ads, etc. Usually this is contextual to what is contained in the main content (for example on a news article page, the sidebar might contain the author's bio, or links to related articles) but there are also cases where you'll find some recurring elements like a secondary navigation system.</dd>
+        <dt>footer</dt>
+        <dd>A strip across the bottom of the page that generally contains fine print, copyright notices, or contact info. It's a place to put common information (like the header) but usually that information is not critical or secondary to the website itself. The footer is also sometimes used for <a href="/en-US/docs/Glossary/SEO" class="glossaryLink" title="SEO: SEO (Search Engine Optimization) is the process of making a website more visible in search results, also termed improving search rankings.">SEO</a> purposes, by providing links for quick access to popular content.</dd>
+      </p>
     </section>
+    <hr class="sep">
+    <section class="main-section" id="reference">
+      <header>Reference</header>
+      <p>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML" target="_blank">MDN</a></p>
+    </section>
+
   </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>

@@ -6,6 +6,10 @@ html,body{
   min-width:290px;
 }
 
+#main-doc {
+  position:relative;
+}
+
 #navbar{
   position:fixed;
   min-width:290px;
@@ -19,7 +23,7 @@ html,body{
 header{
   color:black;
   font-size: 30px;
-  margin:10px;
+  margin:15px;
   text-align:center;
   font-weight:thin;
 }
@@ -64,3 +68,16 @@ header{
   padding:20px;
   margin-bottom:110px;
 }
+
+.sep {
+  width:60%;
+  border-color: #1A237E;
+  margin-top:40px;
+  margin-bottom:20px;
+}
+
+dt {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
